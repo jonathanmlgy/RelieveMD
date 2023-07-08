@@ -1,0 +1,439 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex
+}
+
+.wall {
+    flex: 5
+}
+
+h1 {
+ padding: 20px;
+ 
+}
+
+header {
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+} 
+
+nav ul li a:hover {
+    color: #0070f3;
+}
+
+.body {
+    display: flex;
+}
+aside {
+    flex: 1;
+    border-right: .5px solid #00000030;
+    height: 100vh;
+}
+
+    aside ul {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        gap: 10px;
+        list-style: none;
+        font-size: larger;
+    }
+
+    aside ul li {
+        -webkit-tap-highlight-color: red;
+    }
+
+    aside ul li a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+main {
+    flex: 5;
+}
+    .main_header {
+        display: flex;
+        align-items: center;
+        
+    }
+
+    .main_header button {
+        border-radius: 25px;
+        height: 50px;
+        background-color: green;
+    }
+    
+
+    main .title {
+        padding: 20px;
+    }
+
+    main .post-list, #post-list {
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+
+    main .post, main .user_shift {
+        background-color: #EEF5FE;
+        border-radius: 10px;
+        padding: 20px;
+        border-top: 1px solid grey;
+        border-left: 1px solid grey;
+        box-shadow: 2px 2px 4px grey;
+        max-width: 450px;
+        min-width: 450px;
+    }
+
+    .user_shift .user_shift_header {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+
+    main .post, main .user_shift, .chat_user, aside .list {
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    main .post:hover, main .user_shift:hover, .chat_user:hover {
+        background-color: #ceddf0;
+    }
+
+    
+
+    main .post h2, main .user_shift h2, main .user_shift h3 {
+        margin-bottom: 10px;
+    }
+
+    main .shift, main .applicants .doctor {
+        background-color: #F5F8FD;
+        border: 2px solid white;
+        border-radius: 10px;
+        padding: 5px;
+    }
+
+    main .shift p {
+        margin-bottom: 5px;
+    }
+
+    main .applicants .doctor {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 5px;
+    }
+
+    main .status {
+        margin-top: 20px;
+    }
+
+    main .applicants {
+        margin-top: 20px;
+    }
+
+    button {
+        background-color: #0070f3;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    main .apply_button {
+        margin-top: 15px;
+        width: 100%;
+    }
+    
+    main .applicants .doctor .decline-button, .cancel_button{
+        background-color: red;
+        margin-left: 5px;
+    }
+
+    button:hover {
+        background-color: #0051a8;
+    }
+    
+    .modal_container {
+        position: fixed;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -20%) scale(1);
+        transition: 200ms ease-in-out;
+        border: 1px solid black;
+        border-radius: 10px;
+        z-index: 10;
+        background-color: #F5F8FD;
+        width: 350px
+    }
+    
+     .modal .modal_header {
+        padding: 20px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid black;
+    }
+    
+    .modal label {
+        display: block;
+        padding: 5px 15px;
+    }
+    
+     .modal .modal_body {
+        margin-top: 10px;
+    }
+    
+     .modal form {
+        font-size: 15px;
+    }
+    
+     .modal form #notes {
+        height: 50px;
+    }
+    
+     .modal form .post_button {
+        margin: 15px;
+        width: 320px;
+        
+    }
+    
+    .modal input {
+        width: 320px;
+        margin: 0 15px;
+        height: 25px;
+        border-radius: 5px;
+    }
+    
+    .modal .time {
+        display: flex;
+        width: 320px;
+        justify-content: space-between;
+    }
+    
+    .time #time_in input, .time #time_out input {
+        width: 140px;
+    }
+
+    .modal .modal_header .close-button, .button_to .delete-button {
+        cursor: pointer;
+        border: none;
+        outline: none;
+        background: none;
+        padding: 0;
+        color: black;
+        font-weight: bold;
+        font-size: 1.25rem;
+    }
+
+    #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 2;
+    }
+
+    .applicant_buttons {
+        display: flex;
+    }
+    
+    .chats {
+        display: flex;
+        height: 90vh;
+    }
+
+    .chats_container {
+        padding: 20px;
+        width: 20%;
+        border-right: 1px solid black;
+        height: 100%;
+    }
+
+    .chat_user {
+        padding: 5px;
+        background-color: #F5F8FD;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center ;
+    }
+
+    .chat_user h4 {
+        margin-bottom: 5px;
+    }
+
+    .message_window {
+        background-color: #F5F8FD;
+        display: flex;
+        width: 80%;
+        flex-direction: column;
+        
+    }
+
+    .message {
+        margin-top: 10px;
+        padding: 5px;
+    }
+
+    .message p {
+        border-radius: 5px;
+        border: .5px solid grey;
+        display: inline;
+        padding: 10px;
+        
+    }
+
+    .message_body {
+        height: 80vh;
+        border-bottom: 1px solid black;
+        overflow: scroll;
+        padding: 0 10px;
+    }
+
+    .chat {
+        padding: 20px;
+    }
+
+    .chat input {
+        width: 90%;
+        height: 60px;
+    }
+
+
+    .send {
+        height: 60px;
+        width: 8%;
+    }
+
+    .window_header {
+        padding: 20px;
+        border-bottom: 1px solid black;
+    }
+
+    aside .list {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    aside .list:hover {
+        background-color: #EEF5FE;
+    }
+
+    .shift_modal {
+        position: fixed;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -20%) scale(1);
+        transition: 200ms ease-in-out;
+        border: 1px solid black;
+        border-radius: 10px;
+        z-index: 10;
+        background-color: #F5F8FD;
+        width: 350px;
+        padding: 20px;
+    }
+
+    .shift_modal h2 {
+        margin-bottom: 10px;
+    }
+
+    .shift_modal p {
+        margin-bottom: 5px;
+    }
+
+    .shift_modal button {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .shift_modal button #edit_button {
+        background-color: green;
+    }
+
+    .errors {
+        border: 1px solid red;
+        padding: 15px;
+        color: red;
+        margin-bottom: 5px;
+    }
+
+    .success_message {
+        border: 1px solid green;
+        color: green;
+        padding: 15px;
+    }
+
+    turbo-cable-stream-source {
+        position: absolute;
+    }
+
+    .profile {
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+        .user_profile, .edit_profile {
+            margin-top: 10px;
+            margin-left: 10px;
+            border: 1px solid black;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .edit_profile form input {
+            display: block;
+            height: 30px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .edit_footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }        
+
+        .edit_button {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .edit_links {
+            margin-top: 10px;
+        }

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Relievemd</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'main-style', media: 'all', 'data-turbolinks-track': true %>
+    <%= javascript_importmap_tags %>
+    <style>
+    <%= ".msg-#{session[:user]['id']}" %> {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    <%= ".msg-#{session[:user]['id']} p" %> {
+        background-color: rgb(189, 188, 188);
+    }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+  // retrieve the selected menu item from localStorage
+            var selectedItem = localStorage.getItem('selectedItem');
+
+            // if there is a selected menu item, add the highlight class to it
+            if (selectedItem) {
+                $('li').removeClass('highlight');
+                $('li:contains(' + selectedItem + ')').addClass('highlight');
+            }
+
+            // add click event listener to menu items
+            $('li').click(function() {
+                $('li').removeClass('highlight');
+                $(this).addClass('highlight');
+
+                // store the selected menu item in localStorage
+                localStorage.setItem('selectedItem', $(this).text());
+            });
+        });
+    </script>
+
+  </head>
+
+  <body>
+    <div data-controller='geolocation'>
+    </div>
+    <div class='container'>
+        <%= render partial: "posts/side_nav" %>
+        <div class='wall'>
+            <header>
+                <h2>Hi, Doc <%= @user['first_name'] %>!</h2>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/users/logout">Logout</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class='body'>
+                <%= turbo_frame_tag "post" %>
+                <%= turbo_frame_tag "modal" %>
+                <%= yield %>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<div class = 'profile'>
+    <div class = 'user_profile'>
+        <h1>Account Information</h1>
+        <% if errors.any? %>
+            <div class = 'errors'>
+                <% errors.each do |error|%>
+                    <p><%=error%></p>
+                <% end%>
+            </div>
+        <% end%>
+        <p>First name: <%= user.first_name%></p>
+        <p>Last Name: <%= user.last_name%></p>
+        <p>Email: <%= user.email%></p>
+        <p>Education: <%= user.education%></p>
+        <p>Area: <%= user.area%></p>
+        <p>Nearby Posts: <%= user.radius%>km</p>
+        <div class = 'edit_links'>
+            <a href='/edit_profile'>Edit Profile</p>
+            <a href='/change_password'>Change Password</p>
+        </div>
+    </div>
+</div>

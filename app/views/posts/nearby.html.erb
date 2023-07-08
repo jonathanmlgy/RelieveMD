@@ -1,0 +1,13 @@
+<main>
+    <div class='main_header'>
+        <h2 class='title'>Nearby Shifts</h2>
+    </div>
+    <div class="post-list">
+
+    
+    <% @posts.each do |post| %>
+        <div class="post" id="post", data-controller = "post", data-action = "click->post#show", data-post-id = '<%= post.id %>'>
+            <%= render post %>
+        </div>
+    <% end %>
+</main>

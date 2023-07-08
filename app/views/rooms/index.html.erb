@@ -1,0 +1,42 @@
+<main>
+  <div class='chats'>
+        <div class='chats_container'>
+        <%= turbo_stream_from "rooms" %>
+        <% if @rooms.any? %>
+            <% @rooms.each do |room| %>
+                <div class="chat_user" id="room">
+                    <%= render room %>
+                </div>
+            <% end %>
+        <% end %>  
+        </div>
+        <div class='message_window'>
+            <div class='window_header'>
+                <% if @room.present? %>
+                    <h3> <%= @room.other_participant(@user_id) %> </h3>
+                <% end %>  
+            </div>
+            <div class='message_body'>
+            <%= turbo_stream_from "messages" %>
+                <div id='messages'>
+                    <% if @messages.present? %>
+                        <% @messages.each do |message| %>
+                            <%= render message %>
+                        <% end %>
+                    <% end %>
+                </div>
+                
+            </div>
+            <div class='chat'>
+                <form action='/message' method='post' remote: true>
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    <% if @room.present? %>
+                        <input type="hidden" name="message[room_id]" value= "<%= @room.id %> ">
+                    <% end %>  
+                    <input type='textarea' id="message" name="message[content]">
+                    <button class='send'>Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

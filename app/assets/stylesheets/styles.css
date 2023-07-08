@@ -1,0 +1,274 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+/* Header */
+header {
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #0070f3;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+button {
+    background-color: #0070f3;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0051a8;
+}
+
+/* Main Content */
+
+
+
+.login {
+    display:flex;
+    flex-direction: row;
+    height:90vh;
+    border-bottom: 1px dotted black;
+}
+
+.doctor img {
+    top: 150px;
+    left: -120px;
+    position: absolute;
+    z-index: -1;
+}
+
+.title {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.signup-area {
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    width: 20%;
+    border-top: 1px outset rgb(29, 154, 185);
+    border-left: 1px outset rgb(29, 154, 185);
+    box-shadow: 3px 3px 5px rgb(29, 154, 185);
+    border-radius: 10px;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.signup-area .error {
+    border: 1px solid red;
+    background-color: rgb(248, 167, 167);
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.signup-area .error p {
+    font-size: smaller;
+    color: black;
+}
+
+.signup-area form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-area form label {
+    font-size: smaller;
+    margin-bottom: 5px;
+}
+
+.signup-area input {
+    height: 25px;
+    width: 260px;
+    margin-bottom: 5px;
+}
+
+.signup-area button {
+    margin: 5px 0 10px 0;
+    background-color: green;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signup-area button:hover {
+    background-color: rgb(1, 110, 1);
+  }
+
+
+.login-area {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 25%;
+    border-top: 1px outset rgb(29, 154, 185);
+    border-left: 1px outset rgb(29, 154, 185);
+    box-shadow: 3px 3px 5px rgb(29, 154, 185);
+    border-radius: 10px;
+  }
+  
+  .login-area form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .login-area input {
+    padding: 5px;
+    height: 50px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .login-area button {
+    background-color: #0070f3;
+    color: #fff;
+    height: 50px;
+    width: 300px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .login-area #username, #password {
+    margin-bottom: 10px;
+  }
+  
+  .login-area button:hover {
+    background-color: #0051a8;
+  }
+  
+  .login-area a {
+    text-decoration: none;
+    color: #0070f3;
+    transition: color 0.3s ease;
+  }
+  
+  .login-area a:hover {
+    color: #0051a8;
+  }
+
+
+.details {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+article {
+    flex-basis: 30%;
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+article h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+article p {
+    margin-bottom: 10px;
+}
+
+article ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+article li {
+    margin-bottom: 10px;
+}
+
+article button {
+    background-color: #0070f3;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+article button:hover {
+    background-color: #0051a8;
+}
+
+.testimonial {
+    background-color: #f5f5f5;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.testimonial blockquote {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.testimonial p {
+    font-weight: bold;
+}
+

@@ -1,0 +1,7 @@
+<main>
+  <h2 class='title'>Your Shifts</h2>
+    <%= turbo_frame_tag "post-list" do %>
+        <%= turbo_stream_from "post-list" %>
+            <%= render partial: "posts/your_shifts", locals: { posts: @posts} %>
+    <% end %>
+</main>

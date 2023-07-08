@@ -1,0 +1,7 @@
+<main>
+	<h2 class='title'>Applied Shifts</h2>
+	<%= turbo_frame_tag "applied-list" do %>
+		<%= turbo_stream_from "applied-list" %>
+			<%= render partial: "posts/applied_list", locals: { posts: @posts} %>
+	<% end %>
+</main>

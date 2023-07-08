@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "profile" do %>
+	<%= turbo_stream_from "profile" %>
+        <%= render partial: "users/user_profile", locals: { user: @user, errors: []} %>
+<% end %>
+
+
+

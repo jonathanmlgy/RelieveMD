@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  hospital: MyString
+  location: MyString
+  specialty: MyString
+  fee: 1
+  time_in: 2023-04-22 15:54:13
+  time_out: 2023-04-22 15:54:13
+  notes: MyText
+
+two:
+  title: MyString
+  hospital: MyString
+  location: MyString
+  specialty: MyString
+  fee: 1
+  time_in: 2023-04-22 15:54:13
+  time_out: 2023-04-22 15:54:13
+  notes: MyText

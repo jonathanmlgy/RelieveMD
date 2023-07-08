@@ -1,0 +1,25 @@
+<div class="post-list">
+    <% @posts.each do |post| %>
+        <div class="user_shift">
+            <div class = 'user_shift_header'>
+                <h2><%= post.title %></h2>
+                <%= button_to raw('&times;'), "/delete_application/#{post.id}", method: :post, onclick: "event.stopPropagation();", class: "delete-button" %>
+            </div>
+            <div class='shift'>
+                <p><strong>Location:</strong> <%= post.hospital %></p>
+                <p><strong>Date:</strong> <%= post.time_in.strftime("%B %dth, %Y") %></p>
+                <p><strong>Time:</strong> <%= post.time_in.strftime("%l:%M %p") %> - <%= post.time_out.strftime("%l:%M %p") %></p>
+                <p><strong>Specialty:</strong> <%= post.specialty %></p>
+                <p><strong>Professional Fee:</strong> $<%= post.fee %>/hour</p>
+                <p><strong>Posted by:</strong><a href='#'> <%= "#{post.user.first_name} #{post.user.last_name}" %></a></p>
+            </div>
+            <div class='status'>
+                <% if post.assigned_to_id === @current_user_id %>
+                    <h3>Status: Accepted</h3>
+                <% else %>
+                    <h3>Status: Pending</h3>
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+</div>

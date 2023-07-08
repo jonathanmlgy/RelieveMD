@@ -1,0 +1,17 @@
+<main>
+    <div class='main_header'>
+        <h2 class='title'>Available Shifts</h2>
+        <%= button_to "Post a shift", new_post_path, method: :get, data: { turbo_frame: "modal" }, class: "post_button" %>
+    </div>
+    <div class="post-list">
+
+    
+    <% @posts.each do |post| %>
+        <div class="post" id="post", data-controller = "post", data-action = "click->post#show", data-post-id = '<%= post.id %>'>
+            <%= render post %>
+        </div>
+    <% end %>
+    
+</main>
+
+ 

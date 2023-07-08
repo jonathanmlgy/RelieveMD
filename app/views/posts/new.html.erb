@@ -1,0 +1,46 @@
+<%= turbo_frame_tag "modal" do %>
+  <div class='modal'>
+        <div class='modal_container'>
+            <div class='modal_header'>
+                <h3>Shift details</h3>
+                <%= button_to raw('&times;'), "#", class: "close-button", data: { controller: "modals", action: "modals#close" } %>
+            </div>
+            <div class='modal_body'>
+                <% if flash[:errors] %>
+                    <div class="alert alert-danger">
+                        <% flash[:errors].each do |error| %>
+                        <p><%= error %></p>
+                        <% end %>
+                    </div>
+                <% end %>
+                <form action='/create_post' method='post' data-turbo="false">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    <Label>Title</label>
+                    <input type="text" id="title" name="post[title]" required>
+                    <Label>Hospital</label>
+                    <input type="text" id="hospital" name="post[hospital]" required>
+                    <Label>Area</label>
+                    <input type="text" id="area" name="post[area]" required>
+                    <Label>Specialty</label>
+                    <input type="text" id="specialty" name="post[specialty]" required>
+                    <Label>Professional fee</label>
+                    <input type="number" id="fee" name="post[fee]" required>
+                    <div class='time'>
+                        <div id='time_in'>
+                            <Label>Time in</label>
+                            <input type="datetime-local"  name="post[time_in]" required>
+                        </div>
+                        <div id='time_out'>
+                            <Label>Time out</label>
+                            <input type="datetime-local" id="time_out" name="post[time_out]" required>
+                        </div>
+                    </div>
+                    <Label>Other notes:</label>
+                    <input type="textarea" id="notes" name="post[notes]" required>
+                    <button class='post_button'>Post</button>
+                </form>
+            </div>
+        </div>
+        <div id='overlay' data-controller='modals' data-action='click->modals#close'>
+    </div>
+<% end %>

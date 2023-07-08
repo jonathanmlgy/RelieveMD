@@ -1,0 +1,11 @@
+<% if message.present? %>
+    <div class='success_message'>
+        <p><%= message %></p>
+    </div>
+<% elsif errors.any? %>
+    <div class='errors'>
+        <% errors.each do |error| %>
+            <p><%= error %></p>
+        <% end %>
+    </div>
+<% end %>

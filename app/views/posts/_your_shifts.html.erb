@@ -1,0 +1,43 @@
+    <% posts.each do |post| %>
+        <div class="user_shift", data-controller = "post", data-action = "click->post#show", data-post-id = '<%= post.id %>'>
+            <div class = 'user_shift_header'>
+                <h2><%= post.title %></h2>
+                <%= button_to raw('&times;'), post_path(post), method: :delete, onclick: "event.stopPropagation();", remote: "true", class: "delete-button" %>
+            </div>
+            <div class='shift'>
+                <p><strong>Hospital:</strong> <%= post.hospital %></p>
+                <p><strong>Area:</strong> <%= post.area %></p>
+                <p><strong>Date:</strong> <%= post.time_in.strftime('%B %d, %Y') %></p>
+                <p><strong>Time:</strong> <%= post.time_in.strftime('%-I:%M %p') %> - <%= post.time_out.strftime('%-I:%M %p') %></p>
+                <p><strong>Specialty:</strong> <%= post.specialty %></p>
+                <p><strong>Professional Fee:</strong> $<%= post.fee %>/hour</p>
+            </div>
+            <% if post.status == 1 %>
+            <div class='applicants'>
+                <h3>Reliever:</h3>
+                <% reliever_name = post.assigned_to.first_name + " " + post.assigned_to.last_name %>
+                <div class='doctor'>
+                    <p><a href=''><%= reliever_name %></a></p>
+                    <div class='applicant_buttons'>
+                        <%= button_to "Cancel", cancel_assignee_path(post_id: post.id), method: :post, onclick: "event.stopPropagation();", class: "cancel_button" %>
+                    </div>
+                </div>
+            </div>
+            <% else %>
+            <div class='applicants'>
+                <h3>Applicants</h3>
+                <% post.applications.each do |application| %>
+                    <% if application.user.present? %>
+                        <% applicant_name = application.user.first_name + " " + application.user.last_name %>
+                        <div class='doctor'>
+                            <p id="<%= application.user.id %>"><a href=''><%= applicant_name %></a></p>
+                            <div class='applicant_buttons'>
+                                <%= button_to "Accept", assign_applicant_path(post_id: post.id, user_id: application.user.id), method: :post, class: "accept_button" , onclick: "event.stopPropagation();", remote: "true" %>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+            <% end %>
+        </div>
+    <% end %>

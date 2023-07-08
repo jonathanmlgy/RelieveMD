@@ -1,0 +1,16 @@
+<div id = "post_<%= post.id %>">
+    <h2><%= post.title %></h2>
+    <div class='shift'>
+        <p><strong>Hospital:</strong> <%= post.hospital %></p>
+        <p><strong>Area:</strong> <%= post.area %></p>
+        <p><strong>Specialty:</strong> <%= post.specialty %></p>
+        <p><strong>Professional Fee:</strong> <%= number_to_currency(post.fee, precision: 0) %>/hour</p>
+        <p><strong>Time in:</strong> <%= post.time_in.strftime("%B %e, %Y | %l:%M %p") %></p>
+        <p><strong>Time out:</strong> <%= post.time_out.strftime("%B %e, %Y | %l:%M %p") %></p>
+        <% if post.notes.present? %>
+        <p><strong>Notes:</strong> <%= post.notes %></p>
+        <% end %>
+        <p><strong>Posted by:</strong><a href='#'> <%= "#{post.user.first_name} #{post.user.last_name}" %></a></p>
+    </div>
+    <%= button_to "Apply", apply_to_post_path(post.id), method: :post, data: { turbo: false }, onclick: "event.stopPropagation();", class: "apply_button" %>
+</div>

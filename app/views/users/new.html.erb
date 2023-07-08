@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>RelieveMD - Find Reliable and Qualified Substitutes</title>
+	<%= stylesheet_link_tag 'styles', media: 'all', 'data-turbolinks-track': true %>
+</head>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+	<section class="login">
+		<div class="doctor">
+			<img src="doctor.png" alt="doctor">
+		</div>
+		<div class="title">
+			<h1>RelieveMD</h1>
+			<h2>Find Reliable and Qualified Substitutes</h2>
+		</div>
+		
+		<div class="signup-area">
+			<% if flash[:errors] %>
+				<div class="error">
+					<% flash[:errors].each do |error| %>
+					<p><%= error %></p>
+					<% end %>
+				</div>
+			<% end %>
+			<form action='/users/create' method='post' data-turbo='false'>
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <label>Username:</label>
+                <input type="text" id="username" name="user[username]" required>
+                <label>First name:</label>
+                <input type="text" id="first_name" name="user[first_name]" required>
+                <label>Last name:</label>
+                <input type="text" id="last_name" name="user[last_name]" required>
+                <label>Email:</label>
+                <input type="email" id="email" name="user[email]" required>
+				<label>Area:</label>
+                <input type="text" id="email" name="user[area]" required>
+                <label>Password:</label>
+                <input type="password" id="password" name="user[password]" required>
+				<label>Confirm Password:</label>
+                <input type="password" id="password_confirmation" name="user[password_confirmation]" required>
+                <button type="submit">Create Account</button>
+			</form>
+			<a href="/">Already have an account</a>
+		</div>
+		
+	</section>
+
+	<section class="details">
+		<article>
+			<h3>How it Works</h3>
+			<p>1. Post your shift details and requirements</p>
+			<p>2. Qualified substitutes in the area are notified</p>
+			<p>3. Choose the best candidate to cover your shift</p>
+		</article>
+		<article>
+			<h3>Benefits</h3>
+			<ul>
+				<li>Streamlines the process of finding a substitute</li>
+				<li>Saves time and effort for doctors and staff</li>
+				<li>Ensures qualified substitutes are readily available</li>
+				<li>Reduces burden on doctors and ensures continuity of care</li>
+			</ul>
+			<button>Learn More</button>
+		</article>
+		<article>
+			<h3>Testimonials</h3>
+			<div class="testimonial">
+				<blockquote>"RelieveMD has saved us so much time and effort in finding substitutes for our staff. The platform is user-friendly and efficient."</blockquote>
+				<p>- Dr. Smith, ABC Clinic</p>
+			</div>
+			<div class="testimonial">
+				<blockquote>"I have found some excellent substitutes through RelieveMD. The app makes it easy to find and communicate with potential candidates."</blockquote>
+				<p>- Dr. Patel, XYZ Hospital</p>
+			</div>
+		</article>
+	</section>
+	<footer>
+		<p>&copy; 2023 RelieveMD. All rights reserved.</p>
+	</footer>
+</body>
+</html>
